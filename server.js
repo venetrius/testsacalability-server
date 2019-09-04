@@ -1,5 +1,5 @@
-const http = require("http"),
-    port = 8888;
+const http = require("http")
+const PORT = process.env.PORT || 8888
 
 const buzyXsec = function(seconds){
     const waitTill = new Date(new Date().getTime() + seconds * 1000);
@@ -7,10 +7,10 @@ const buzyXsec = function(seconds){
 }
 
 http.createServer(function(request, response) {
-    buzy5sec(5);
+    buzyXsec(5);
     response.writeHead(200);
     response.write(JSON.stringify({message : 'hello'}), "json");
     response.end();
-}).listen(parseInt(port, 10));
+}).listen(parseInt(PORT, 10));
 
-console.log("Static file server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
+console.log("Server running at on: " + PORT);
