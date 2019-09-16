@@ -3,8 +3,9 @@ const PORT = process.env.PORT || 8888
 var url = require('url');
 
 const busyXsec = function(seconds){
-    const waitTill = new Date(new Date().getTime() + seconds * 1000);
-    while(waitTill > new Date()){}
+  const countTo = 500 * 1000 * 1000
+  let count = 0
+  while(count  > countTo){ count++ }
 }
 
 http.createServer(function(request, response) {
